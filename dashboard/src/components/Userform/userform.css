@@ -1,0 +1,38 @@
+.userform {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.userform input {
+  width: 100%;
+  height: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.userform .submitbutton {
+  background-color: #1277e1;
+  border: none;
+  color: white;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 1rem;
+  height: 3rem;
+}
+
+.submitbutton:hover {
+  background-color: #0d0079;
+}
