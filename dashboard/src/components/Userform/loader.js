@@ -1,8 +1,7 @@
-import { RingLoader } from 'react-spinners';
+import { DotLoader, RingLoader } from 'react-spinners';
 import './userform.css';
 
-const LoadingIndicator = (props) => {
-  const data = props.data;
+const LoadingIndicator = () => {
   return (
     <div
       style={{
@@ -16,7 +15,8 @@ const LoadingIndicator = (props) => {
       }}
       className="loader"
     >
-      <RingLoader color={'#fff'} size={100} loading />
+      <DotLoader className="dotloader" color={'#fff'} size={100} loading />
+      <h1>Calculating</h1>
     </div>
   );
 };
