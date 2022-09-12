@@ -1,0 +1,124 @@
+.our-team {
+  max-width: 120rem;
+  height: 68vh;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+  /* transition: all 0.3s; */
+}
+
+.our-team h1 {
+  text-align: center;
+  padding-bottom: 5rem;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  color: aliceblue;
+
+  /* animation: moveFromLeft 0.5s ease-in; */
+}
+
+.team-info__container {
+  display: flex;
+  height: inherit;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.team-info {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: gray;
+  position: relative;
+  box-shadow: 0 0 5px 3px rgb(56, 87, 155);
+}
+
+.team-info:hover .team-member__info {
+  transform: translateY(0);
+  animation: moveInBottom 0.3s ease-in-out;
+}
+
+.team-member__info {
+  width: inherit;
+  height: 6rem;
+  color: white;
+  background-color: rgba(35, 49, 83, 0.803);
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  /* clip-path: polygon(0 0, 100% 20%, 100% 75vh, 0 100%); */
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member__info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-member__info h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.team-info__member1 {
+  background-image: url("../../../images/Hannah.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.team-info__member2 {
+  background-image: url("../../../images/Sovit.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.team-info__member3 {
+  background-image: url("../../../images/Destiny.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.team-info__member4 {
+  background-image: url("../../../images/Anup.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+
+  100% {
+    transform: scale(1);
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

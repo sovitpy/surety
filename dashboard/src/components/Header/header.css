@@ -1,17 +1,25 @@
 .header {
   margin-bottom: 3rem;
 }
+
 .navbar {
-  background-color: #0d0079;
+  background-color: #111827;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 0 1rem;
-  padding-right: 2rem;
-  flex-wrap: wrap;
-  font-family: 'Russo One', sans-serif;
+  padding: 0 2rem;
+}
+
+.test {
+  display: flex;
+}
+
+.test span {
+  margin-left: -0.5rem;
+  font-size: 1.25rem;
+  align-self: center;
 }
 
 .navbar img {
@@ -20,14 +28,10 @@
 }
 
 .navbar ul {
-  margin: 0;
-  padding: 0.5rem;
   list-style: none;
   display: flex;
-  gap: 3rem;
-  font-family: sans-serif;
+  gap: 2rem;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .navbar a {
@@ -36,11 +40,12 @@
 }
 
 .navbar li {
-  padding: 0.5rem;
+  padding: 0.5rem 1.3rem;
   font-size: 1.25rem;
+  transition: all 0.3s;
 }
 
 .navbar li:hover {
-  background-color: #0d0079;
+  box-shadow: 0 0 3px 5px rgb(56, 87, 155);
   border-radius: 5px;
 }

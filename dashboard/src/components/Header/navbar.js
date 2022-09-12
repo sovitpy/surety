@@ -1,13 +1,14 @@
-import React from 'react';
-import suretyLogo from '../../images/suretyLogo.png';
-import suretyLogoText from '../../images/suretyLogoText.png';
-import suretyLogoBorder from '../../images/suretyLogoBorder.png';
+import React from "react";
+import suretyLogoBorder from "../../images/suretyLogoBorder1.png";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <a href="/">
-        <img src={suretyLogoBorder} alt="surety-logo" className="navlogo" />
-      </a>
+      <div className="test">
+        <a href="/">
+          <img src={suretyLogoBorder} alt="surety-logo" className="navlogo" />
+        </a>
+        <span>Surety</span>
+      </div>
       <ul>
         <li>
           <a href="/">Home</a>

@@ -1,12 +1,14 @@
-import './App.css';
-import './index.css';
-import Header from './components/Header/header';
-import Userform from './components/Userform/userform';
+import Body from "./components/Body/body";
+import { Route, Routes } from "react-router-dom";
+import TeamInfo from "./components/Body/Teams/TeamInfo";
+
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Userform />
+    <div>
+      <Routes>
+        <Route path="/" element={<Body />} />
+        <Route path="/team" element={<TeamInfo />} />
+      </Routes>
     </div>
   );
 }
