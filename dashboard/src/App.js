@@ -1,6 +1,6 @@
 import './App.css';
+import './index.css';
 import Header from './components/Header/header';
-import Zillowform from './components/Zillowform/zillowform';
 import Userform from './components/Userform/userform';
 function App() {
   return (
