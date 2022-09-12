@@ -22,39 +22,43 @@ export default function Userform() {
       /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
     const urlRegex = new RegExp(expression);
     if (!age || isNaN(age)) {
-      setValidationMessage('Please enter a valid age');
+      setValidationMessage(() => 'Please enter a valid age');
       return;
     }
     if (!income || isNaN(income.slice(2))) {
-      setValidationMessage('Please enter a valid income');
+      setValidationMessage(() => 'Please enter a valid income');
       return;
     }
     if (!family || isNaN(family)) {
-      setValidationMessage('Please enter a valid family size');
+      setValidationMessage(() => 'Please enter a valid family size');
       return;
     }
     if (!url || !url.match(urlRegex) || !url.includes('zillow')) {
-      setValidationMessage('Please enter a valid URL');
+      setValidationMessage(() => 'Please enter a valid URL');
       return;
     } else {
       const zip = extractZip(url);
       if (!zip) {
-        alert('Please enter a valid listing URL');
+        setValidationMessage(() => 'Please enter a valid listing URL');
         return;
       }
-      setLoading('loading');
-      setValidationMessage('');
+      setLoading(() => 'loading');
+      setValidationMessage(() => '');
       const data = {
         age: parseInt(age),
         income: parseInt(income.slice(2)),
         family: parseInt(family),
         zip: zip,
       };
-
-      axios.post('http://localhost:8000/api/v1/predict', data).then((res) => {
+      const apiUrl = 'https://suretyapi.itsmesovit.com/api/v1/predict';
+      console.log(apiUrl);
+      axios.post(apiUrl, data).then((res) => {
         setLoading(() => 'start');
         console.log(res.data);
-      });
+      }).catch((err) => {
+        setLoading(() => 'start');
+        setValidationMessage(() => 'Error connecting to the API. Please try again!')
+      });;
     }
 
     setAge('');
