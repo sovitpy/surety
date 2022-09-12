@@ -1,15 +1,15 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState } from 'react';
+import axios from 'axios';
 
 let result;
 
 const UserForm = (props) => {
-  const [loading, setLoading] = useState("start");
-  const [age, setAge] = useState("");
-  const [income, setIncome] = useState("");
-  const [family, setFamily] = useState("");
-  const [url, setUrl] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
+  const [loading, setLoading] = useState('start');
+  const [age, setAge] = useState('');
+  const [income, setIncome] = useState('');
+  const [family, setFamily] = useState('');
+  const [url, setUrl] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
 
   const extractZip = function (url) {
     var rx = /(?!\A)\b\d{5}(?:-\d{4})?\b/g;
@@ -32,58 +32,58 @@ const UserForm = (props) => {
     const urlRegex = new RegExp(expression);
 
     if (!age || isNaN(age)) {
-      setValidationMessage(() => "Please enter a valid age");
+      setValidationMessage(() => 'Please enter a valid age');
       return;
     }
     if (!income || isNaN(income.slice(2))) {
-      setValidationMessage(() => "Please enter a valid income");
+      setValidationMessage(() => 'Please enter a valid income');
       return;
     }
     if (!family || isNaN(family)) {
-      setValidationMessage(() => "Please enter a valid family size");
+      setValidationMessage(() => 'Please enter a valid family size');
       return;
     }
-    if (!url || !url.match(urlRegex) || !url.includes("zillow")) {
-      setValidationMessage(() => "Please enter a valid URL");
+    if (!url || !url.match(urlRegex) || !url.includes('zillow')) {
+      setValidationMessage(() => 'Please enter a valid URL');
       return;
     } else {
       const zip = extractZip(url);
       if (!zip) {
-        setValidationMessage(() => "Please enter a valid listing URL");
+        setValidationMessage(() => 'Please enter a valid listing URL');
         return;
       }
-      setLoading(() => "loading");
-      props.onLoadingStateChange("loading");
-      setValidationMessage(() => "");
+      setLoading(() => 'loading');
+      props.onLoadingStateChange('loading');
+      setValidationMessage(() => '');
       const data = {
         age: parseInt(age),
         income: parseInt(income.slice(2)),
         family: parseInt(family),
         zip: zip,
       };
-      const apiUrl = "http://152.70.72.213:8000/api/v1/predict";
+      const apiUrl = 'https://suretyapi.itsmesovit.com/api/v1/predict';
       console.log(apiUrl);
       axios
         .post(apiUrl, data)
         .then((res) => {
-          setLoading(() => "result");
+          setLoading(() => 'result');
           console.log(res.data);
           result = res.data.probability;
           props.onFormSubmit(result);
-          props.onLoadingStateChange("result");
+          props.onLoadingStateChange('result');
         })
         .catch((err) => {
-          setLoading(() => "start");
+          setLoading(() => 'start');
           setValidationMessage(
-            () => "Error connecting to the API. Please try again!"
+            () => 'Error connecting to the API. Please try again!'
           );
         });
     }
 
-    setAge("");
-    setIncome("");
-    setFamily("");
-    setUrl("");
+    setAge('');
+    setIncome('');
+    setFamily('');
+    setUrl('');
   };
 
   return (
@@ -107,7 +107,7 @@ const UserForm = (props) => {
           placeholder="Enter your annual income"
           onChange={(e) =>
             setIncome(() =>
-              e.target.value[0] === "$" ? e.target.value : "$ " + e.target.value
+              e.target.value[0] === '$' ? e.target.value : '$ ' + e.target.value
             )
           }
         />

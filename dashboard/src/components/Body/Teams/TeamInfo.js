@@ -30,7 +30,7 @@ const TeamInfo = () => {
           <div className="team-info team-info__member4">
             <div className="team-member__info team-member1">
               <h2>Anup Gautam</h2>
-              <h3>Communicator</h3>
+              <h3>Designer</h3>
             </div>
           </div>
         </div>

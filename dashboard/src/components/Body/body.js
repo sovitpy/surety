@@ -4,6 +4,7 @@ import LoadingIndicator from './loader';
 import Results from './Results';
 import UserForm from './form';
 import Header from '../Header/header';
+import Articles from './Articles';
 
 export default function BodyComponent() {
   const [loadingState, setLoadingState] = useState('start');
@@ -48,6 +49,7 @@ export default function BodyComponent() {
           </div>
         ) : null}
       </div>
+      {loadingState === 'result' ? <Articles /> : null}
     </Fragment>
   );
 }
